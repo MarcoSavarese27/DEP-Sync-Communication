@@ -32,8 +32,10 @@ class ProductRepository:
         with self.Session() as session:
             return session.query(ProductORM).filter(ProductORM.uuid == uuid).first()
 
-    def add_product(self, name: str, weight: float) -> ProductORM:
-        new_product = ProductORM(uuid=str(uuid4()), name=name, weight=weight)
+    def add_product(self, name: str, weight: float, uuid: Optional[str] = None):
+        # Use provided UUID if available, otherwise generate one
+        product_uuid = uuid if uuid else str(uuid4())
+        new_product = ProductORM(uuid=product_uuid, name=name, weight=weight)
         with self.Session() as session:
             session.add(new_product)
             session.commit()

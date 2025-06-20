@@ -40,11 +40,6 @@ class ProductServiceStub(object):
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=proto_dot_product__pb2.ProductList.FromString,
                 _registered_method=True)
-        self.GetProductById = channel.unary_unary(
-                '/product.ProductService/GetProductById',
-                request_serializer=proto_dot_product__pb2.ProductId.SerializeToString,
-                response_deserializer=proto_dot_product__pb2.Product.FromString,
-                _registered_method=True)
         self.GetProductByUUID = channel.unary_unary(
                 '/product.ProductService/GetProductByUUID',
                 request_serializer=proto_dot_product__pb2.ProductUUID.SerializeToString,
@@ -57,7 +52,7 @@ class ProductServiceStub(object):
                 _registered_method=True)
         self.DeleteProduct = channel.unary_unary(
                 '/product.ProductService/DeleteProduct',
-                request_serializer=proto_dot_product__pb2.ProductId.SerializeToString,
+                request_serializer=proto_dot_product__pb2.ProductUUID.SerializeToString,
                 response_deserializer=proto_dot_product__pb2.DeleteResponse.FromString,
                 _registered_method=True)
 
@@ -66,12 +61,6 @@ class ProductServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetAllProducts(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetProductById(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -103,11 +92,6 @@ def add_ProductServiceServicer_to_server(servicer, server):
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=proto_dot_product__pb2.ProductList.SerializeToString,
             ),
-            'GetProductById': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetProductById,
-                    request_deserializer=proto_dot_product__pb2.ProductId.FromString,
-                    response_serializer=proto_dot_product__pb2.Product.SerializeToString,
-            ),
             'GetProductByUUID': grpc.unary_unary_rpc_method_handler(
                     servicer.GetProductByUUID,
                     request_deserializer=proto_dot_product__pb2.ProductUUID.FromString,
@@ -120,7 +104,7 @@ def add_ProductServiceServicer_to_server(servicer, server):
             ),
             'DeleteProduct': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteProduct,
-                    request_deserializer=proto_dot_product__pb2.ProductId.FromString,
+                    request_deserializer=proto_dot_product__pb2.ProductUUID.FromString,
                     response_serializer=proto_dot_product__pb2.DeleteResponse.SerializeToString,
             ),
     }
@@ -151,33 +135,6 @@ class ProductService(object):
             '/product.ProductService/GetAllProducts',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             proto_dot_product__pb2.ProductList.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def GetProductById(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/product.ProductService/GetProductById',
-            proto_dot_product__pb2.ProductId.SerializeToString,
-            proto_dot_product__pb2.Product.FromString,
             options,
             channel_credentials,
             insecure,
@@ -257,7 +214,7 @@ class ProductService(object):
             request,
             target,
             '/product.ProductService/DeleteProduct',
-            proto_dot_product__pb2.ProductId.SerializeToString,
+            proto_dot_product__pb2.ProductUUID.SerializeToString,
             proto_dot_product__pb2.DeleteResponse.FromString,
             options,
             channel_credentials,

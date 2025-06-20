@@ -25,6 +25,7 @@ message ProductList {
 message ProductRequest {
   string name = 1;
   float weight = 2;
+  optional string uuid = 3;  
 }
 
 message DeleteResponse {

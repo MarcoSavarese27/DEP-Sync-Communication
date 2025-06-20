@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13proto/product.proto\x12\x07product\x1a\x1bgoogle/protobuf/empty.proto\"A\n\x07Product\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0e\n\x06weight\x18\x04 \x01(\x02\"\x17\n\tProductId\x12\n\n\x02id\x18\x01 \x01(\x05\"\x1b\n\x0bProductUUID\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"1\n\x0bProductList\x12\"\n\x08products\x18\x01 \x03(\x0b\x32\x10.product.Product\".\n\x0eProductRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06weight\x18\x02 \x01(\x02\"!\n\x0e\x44\x65leteResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x07\n\x05\x45mpty2\x85\x02\n\x0eProductService\x12>\n\x0eGetAllProducts\x12\x16.google.protobuf.Empty\x1a\x14.product.ProductList\x12:\n\x10GetProductByUUID\x12\x14.product.ProductUUID\x1a\x10.product.Product\x12\x37\n\nAddProduct\x12\x17.product.ProductRequest\x1a\x10.product.Product\x12>\n\rDeleteProduct\x12\x14.product.ProductUUID\x1a\x17.product.DeleteResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13proto/product.proto\x12\x07product\x1a\x1bgoogle/protobuf/empty.proto\"A\n\x07Product\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0e\n\x06weight\x18\x04 \x01(\x02\"\x17\n\tProductId\x12\n\n\x02id\x18\x01 \x01(\x05\"\x1b\n\x0bProductUUID\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"1\n\x0bProductList\x12\"\n\x08products\x18\x01 \x03(\x0b\x32\x10.product.Product\"J\n\x0eProductRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06weight\x18\x02 \x01(\x02\x12\x11\n\x04uuid\x18\x03 \x01(\tH\x00\x88\x01\x01\x42\x07\n\x05_uuid\"!\n\x0e\x44\x65leteResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x07\n\x05\x45mpty2\x85\x02\n\x0eProductService\x12>\n\x0eGetAllProducts\x12\x16.google.protobuf.Empty\x1a\x14.product.ProductList\x12:\n\x10GetProductByUUID\x12\x14.product.ProductUUID\x1a\x10.product.Product\x12\x37\n\nAddProduct\x12\x17.product.ProductRequest\x1a\x10.product.Product\x12>\n\rDeleteProduct\x12\x14.product.ProductUUID\x1a\x17.product.DeleteResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -41,11 +41,11 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_PRODUCTLIST']._serialized_start=182
   _globals['_PRODUCTLIST']._serialized_end=231
   _globals['_PRODUCTREQUEST']._serialized_start=233
-  _globals['_PRODUCTREQUEST']._serialized_end=279
-  _globals['_DELETERESPONSE']._serialized_start=281
-  _globals['_DELETERESPONSE']._serialized_end=314
-  _globals['_EMPTY']._serialized_start=316
-  _globals['_EMPTY']._serialized_end=323
-  _globals['_PRODUCTSERVICE']._serialized_start=326
-  _globals['_PRODUCTSERVICE']._serialized_end=587
+  _globals['_PRODUCTREQUEST']._serialized_end=307
+  _globals['_DELETERESPONSE']._serialized_start=309
+  _globals['_DELETERESPONSE']._serialized_end=342
+  _globals['_EMPTY']._serialized_start=344
+  _globals['_EMPTY']._serialized_end=351
+  _globals['_PRODUCTSERVICE']._serialized_start=354
+  _globals['_PRODUCTSERVICE']._serialized_end=615
 # @@protoc_insertion_point(module_scope)

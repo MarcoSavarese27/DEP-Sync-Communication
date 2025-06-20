@@ -1,0 +1,5 @@
+com/nbicocchi/product/service/ProductService.class
+com/nbicocchi/product/controller/ProductController.class
+com/nbicocchi/product/App.class
+com/nbicocchi/product/persistence/model/Product.class
+com/nbicocchi/product/persistence/repository/ProductRepository.class

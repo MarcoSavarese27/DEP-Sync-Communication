@@ -9,7 +9,7 @@ from uuid import uuid4
 class ProductRepository:
     
     def __init__(self):
-        self.engine = create_engine("sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool, echo=False)
+        self.engine = create_engine("sqlite://", connect_args={"check_same_thread": False}, echo=True, poolclass=StaticPool)
         self.Session = sessionmaker(bind=self.engine)
         Base.metadata.create_all(self.engine)
         self.seed_db()
@@ -33,8 +33,10 @@ class ProductRepository:
         with self.Session() as session:
             return session.query(ProductORM).filter(ProductORM.uuid == uuid).first()
 
-    def add_product(self, name:str, weight:float) -> Product:
-        new_product = ProductORM(uuid=str(uuid4()), name=name, weight=weight)
+    def add_product(self, name: str, weight: float, uuid: Optional[str] = None):
+        # Use provided UUID if available, otherwise generate one
+        product_uuid = uuid if uuid else str(uuid4())
+        new_product = ProductORM(uuid=product_uuid, name=name, weight=weight)
         with self.Session() as session:
             session.add(new_product)
             session.commit()

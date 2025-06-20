@@ -1,8 +1,10 @@
 services:
   rest-spring:
-    build: ./product-service-sqlite
+    build: ./product-service-spring
     ports:
-      - "8001:7001"
+      - "8001:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
     networks:
       - product-net
 

@@ -7,12 +7,12 @@ product_service = ProductService()
 @strawberry.type
 class Mutation:
     @strawberry.mutation
-    def add_product(self, name: str, weight: float) -> Product:
-        return product_service.add_product(name, weight)
+    def add_product(self, name: str, weight: float, uuid: Optional[str] = None) -> Product:
+        return product_service.add_product(name, weight, uuid)
 
     @strawberry.mutation
-    def delete_product(self, id: int) -> bool:
-        return product_service.delete_product(id)
+    def delete_product(self, uuid: str) -> bool:
+        return product_service.delete_product(uuid)
 
 @strawberry.type
 class Query:
